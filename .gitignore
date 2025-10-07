@@ -1,0 +1,12 @@
+frontend/package-lock.json
+frontend/node_modules
+backend/package-lock.json
+backend/node_modules
+backend/uploads
+backend/.env
+frontend/.env
+template
+data.xlsx
+test.py
+venv
+

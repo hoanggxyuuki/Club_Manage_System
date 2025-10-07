@@ -1,0 +1,176 @@
+/* Custom scrollbar styling */
+.scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+    background: rgba(31, 41, 55, 0.3);
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(79, 90, 207, 0.6);
+    border-radius: 10px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(79, 90, 207, 0.9);
+}
+
+/* Mobile menu animations */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Hover effect for menu items */
+.menu-item-hover {
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-item-hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.08) 50%,
+        transparent 100%
+    );
+    transition: left 0.7s ease;
+}
+
+.menu-item-hover:hover::after {
+    left: 100%;
+}
+
+/* Active menu item effect */
+.active-menu-item {
+    position: relative;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+.active-menu-item::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    height: 70%;
+    width: 4px;
+    background: linear-gradient(to bottom, #4f46e5, #3b82f6);
+    border-radius: 0 4px 4px 0;
+    transform: translateY(-50%);
+}
+
+/* Badge pulse animation */
+@keyframes badgePulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 6px rgba(220, 38, 38, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+    }
+}
+
+.badge-pulse {
+    animation: badgePulse 2s infinite;
+}
+
+/* Responsive design helpers */
+@media (max-width: 768px) {
+    .sidebar-mobile-open {
+        animation: slideIn 0.3s ease-out forwards;
+    }
+
+    .sidebar-mobile-closed {
+        animation: slideOut 0.3s ease-out forwards;
+    }
+
+    .sidebar-overlay {
+        animation: fadeIn 0.3s ease-out forwards;
+    }
+}
+
+/* Hamburger button animations */
+.hamburger-line {
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger-active .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-active .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Sidebar header gradient */
+.sidebar-header {
+    background: linear-gradient(135deg, #4f46e5, #3b82f6);
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar-header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, rgba(255,255,255,0.2), transparent 70%);
+}
+
+/* Menu item indicator animation */
+@keyframes indicatorPulse {
+    0% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.7;
+    }
+}
+
+.menu-indicator {
+    animation: indicatorPulse 1.5s ease-in-out infinite;
+}

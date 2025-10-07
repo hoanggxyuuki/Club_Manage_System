@@ -1,0 +1,514 @@
+/* Chat Reactions Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile slide up animation */
+@keyframes mobileSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/* Reaction picker animations */
+.reaction-picker-enter {
+  animation: slideUp 0.2s ease-out;
+}
+
+.reaction-picker-mobile {
+  animation: mobileSlideUp 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Smooth transitions for reaction buttons */
+.reaction-btn {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reaction-btn:hover {
+  transform: scale(1.05);
+}
+
+.reaction-btn:active {
+  transform: scale(0.95);
+}
+
+/* Mobile specific reaction button */
+@media (max-width: 768px) {
+  .reaction-btn {
+    transition: all 0.15s ease-out;
+    min-height: 3rem;
+    min-width: 3rem;
+    touch-action: manipulation;
+  }
+  
+  .reaction-btn:active {
+    transform: scale(0.9);
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  
+  /* Larger touch targets for quick reactions */
+  .quick-reaction-btn {
+    min-height: 3.5rem;
+    min-width: 3.5rem;
+    font-size: 1.5rem;
+  }
+}
+
+/* Backdrop blur effect for mobile */
+.mobile-backdrop {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 45;
+}
+
+/* Mobile picker backdrop */
+.mobile-picker-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  z-index: 40;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Smooth scrolling for reaction container */
+.reactions-container {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.reactions-container::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* Mobile touch improvements */
+@media (max-width: 768px) {
+  .reactions-container {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+  
+  /* Better spacing for mobile message bubbles */
+  .message-bubble-mobile {
+    max-width: 90%;
+  }
+  
+  /* Mobile-specific reaction picker optimizations */
+  .mobile-reaction-picker {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 95vw !important;
+    max-width: 400px !important;
+    max-height: 70vh !important;
+    border-radius: 1.5rem !important;
+  }
+  
+  /* Prevent body scroll when reaction picker is open */
+  .body-no-scroll {
+    overflow: hidden;
+    touch-action: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Emoji picker mobile improvements */
+@media (max-width: 768px) {
+  .em-emoji-picker {
+    border-radius: 1rem !important;
+  }
+  
+  .em-emoji {
+    font-size: 1.375rem !important;
+  }
+  .emoji-mart {
+    border: none !important;
+    background: transparent !important;
+  }
+  
+  .emoji-mart-search input {
+    border-radius: 12px !important;
+    border: 1px solid #e5e7eb !important;
+    padding: 12px 16px !important;
+    font-size: 16px !important; /* Prevent zoom on iOS */
+  }
+}
+
+/* Body scroll lock for mobile */
+.body-no-scroll {
+  overflow: hidden !important;
+  touch-action: none !important;
+  -webkit-overflow-scrolling: touch;
+  position: fixed !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+/* ...existing code... */
+
+/* Emoji picker bottom sheet animation */
+@keyframes emojiSlideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Enhanced mobile emoji picker styles */
+@media (max-width: 768px) {
+  /* Apply slide up animation to mobile emoji picker */
+  .emoji-picker-mobile {
+    animation: emojiSlideUp 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  /* Better search input on mobile */
+  .emoji-mart-search input {
+    border-radius: 12px !important;
+    border: 1px solid #e5e7eb !important;
+    padding: 12px 16px !important;
+    font-size: 16px !important; /* Prevent zoom on iOS */
+    background-color: #f9fafb !important;
+  }
+  
+  /* Larger touch targets for quick emojis */
+  .quick-emoji-btn {
+    min-height: 3.5rem !important;
+    min-width: 3.5rem !important;
+    font-size: 2rem !important;
+  }
+  
+  /* Better emoji grid spacing on mobile */
+  .emoji-mart-emoji {
+    padding: 6px !important;
+  }
+  
+  /* Hide emoji picker border on mobile */
+  .emoji-mart {
+    border: none !important;
+    background: transparent !important;
+  }
+  
+  /* Better category navigation on mobile */
+  .emoji-mart-anchors {
+    padding: 0 16px !important;
+  }
+  
+  .emoji-mart-anchor {
+    padding: 12px 8px !important;
+  }
+}
+
+/* Desktop emoji picker improvements */
+@media (min-width: 769px) {
+  .emoji-picker-desktop {
+    max-width: 20rem;
+    border-radius: 12px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+}
+
+/* Consistent backdrop styling */
+.emoji-picker-backdrop {
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Body scroll lock improvements */
+.emoji-picker-open {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
+}
+/* Quick reaction button improvements */
+.quick-reaction-btn {
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 768px) {
+  .quick-reaction-btn:active {
+    transform: scale(0.9);
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+}
+
+/* Animation for reaction count changes */
+.reaction-count-change {
+  animation: pulse 0.3s ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Three-dot menu for mobile */
+.mobile-menu-enter {
+  animation: slideInScale 0.2s ease-out;
+}
+
+@keyframes slideInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Mobile menu button improvements */
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    transition: all 0.15s ease-out;
+    touch-action: manipulation;
+  }
+  
+  .mobile-menu-btn:active {
+    transform: scale(0.9);
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+/* Mobile menu backdrop - prevent overlap */
+.mobile-menu-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(2px);
+  z-index: 9998;
+  animation: fadeIn 0.15s ease-out;
+}
+
+/* Enhanced mobile menu dropdown */
+.mobile-menu-dropdown {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 9999 !important;
+}
+
+/* Prevent multiple menus from overlapping */
+@media (max-width: 768px) {
+  .mobile-menu-dropdown {
+    /* CRITICAL: Force fixed positioning and prevent bottom overflow */
+    position: fixed !important;
+    z-index: 9999 !important;
+    /* Ensure menu stays within viewport */
+    max-width: calc(100vw - 32px) !important;
+    min-width: 160px !important;
+    /* CRITICAL: Force maximum top position to prevent keyboard overlap */
+    max-height: calc(50vh - 80px) !important;
+    top: clamp(16px, var(--menu-top, 120px), 50vh) !important;
+    overflow-y: auto !important;
+    /* Enhanced shadow for better visibility */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+    /* Ensure proper border radius */
+    border-radius: 12px !important;
+    /* Prevent menu from ever appearing in bottom half */
+    bottom: auto !important;
+  }
+  
+  /* Ensure proper stacking context */
+  .group {
+    position: relative;
+    z-index: auto;
+  }
+  
+  /* Higher z-index for active menu container */
+  .group:has(.mobile-menu-dropdown) {
+    z-index: 9999;
+  }
+
+  /* Enhanced mobile menu item styling */
+  .mobile-menu-item {
+    min-height: 48px !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+    /* Better spacing for touch targets */
+    padding: 12px 16px !important;
+    font-size: 16px !important; /* Prevent zoom on iOS */
+  }
+  
+  .mobile-menu-item:active {
+    background-color: rgba(59, 130, 246, 0.1) !important;
+    transform: scale(0.98) !important;
+  }
+
+  /* Smooth positioning animation for mobile menus */
+  .mobile-menu-dropdown {
+    animation: smartSlideIn 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  /* Prevent body scroll when menu is open */
+  body.mobile-menu-open,
+  body.bottom-sheet-open {
+    overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
+  }
+  
+  /* CRITICAL: Additional safety override for any menu that might slip through */
+  .mobile-menu-dropdown[style*="position: fixed"] {
+    top: clamp(16px, attr(style top), min(200px, 40vh)) !important;
+    bottom: auto !important;
+  }
+}
+
+/* Mobile bottom sheet styles */
+.mobile-bottom-sheet {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.mobile-bottom-sheet-backdrop {
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Bottom sheet animations */
+@keyframes slideUpFromBottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDownToBottom {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.bottom-sheet-enter {
+  animation: slideUpFromBottom 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.bottom-sheet-exit {
+  animation: slideDownToBottom 0.25s ease-in;
+}
+.quick-reaction-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.75rem;
+}
+/* Enhanced mobile menu item styling for bottom sheet */
+@media (max-width: 768px) {
+  .mobile-bottom-sheet .mobile-menu-item {
+    min-height: 64px !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+    padding: 16px 24px !important;
+    font-size: 16px !important;
+    transition: background-color 0.15s ease-out !important;
+  }
+  
+  .mobile-bottom-sheet .mobile-menu-item:active {
+    background-color: rgba(59, 130, 246, 0.1) !important;
+    transform: scale(0.98) !important;
+  }
+  
+  /* Handle bar styling */
+  .bottom-sheet-handle {
+    width: 40px;
+    height: 4px;
+    background-color: #d1d5db;
+    border-radius: 2px;
+    margin: 0 auto;
+  }
+  
+  /* Prevent body scroll when bottom sheet is open */
+  body.bottom-sheet-open {
+    overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+/* Enhanced mobile menu item styling */
+@media (max-width: 768px) {
+  .mobile-menu-item {
+    min-height: 48px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .mobile-menu-item:active {
+    background-color: rgba(59, 130, 246, 0.1) !important;
+    transform: scale(0.98);
+  }
+}

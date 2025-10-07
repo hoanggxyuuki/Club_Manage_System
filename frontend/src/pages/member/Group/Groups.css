@@ -1,0 +1,126 @@
+/* Groups page styling */
+.group-page {
+  --card-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Card hover effects */
+.group-card {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  border: 1px solid rgba(209, 213, 219, 0.5);
+}
+
+.group-card:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Animation for modal appearance */
+@keyframes fadeScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeScale {
+  animation: fadeScale 0.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+/* Custom scrollbar for better UX */
+.group-page ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.group-page ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.group-page ::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+  border-radius: 10px;
+}
+
+.group-page ::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Card styling variations for more human-like design */
+.group-card:nth-child(3n+1) {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.group-card:nth-child(3n+2) {
+  box-shadow: 0 3px 5px rgba(0,0,0,0.05);
+}
+
+.group-card:nth-child(3n+3) {
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+}
+
+/* Asymmetric line clamping for variety */
+.group-card:nth-child(odd) p.line-clamp-3 {
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+/* Add slight randomization to elements */
+.group-card:nth-child(4n+1) {
+  transform: rotate(0.5deg);
+}
+
+.group-card:nth-child(4n+3) {
+  transform: rotate(-0.3deg);
+}
+
+.group-card:hover {
+  transform: scale(1.02) rotate(0) !important;
+}
+
+/* Make the group cards have some subtle text variations */
+.group-card:nth-child(odd) h3 {
+  letter-spacing: -0.02em;
+}
+
+.group-card:nth-child(even) h3 {
+  letter-spacing: 0.01em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .group-card {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  }
+  
+  .group-card:hover {
+    transform: scale(1.01) !important;
+  }
+}
